@@ -8,7 +8,7 @@ A simple blog CMS built with Node.js and Express.
 ## Features
 - User authentication
 - Blog posting
-- Comment system
+  
 
 ## Setup
 1. Clone the repo: `git clone https://github.com/0xN7y/BlogCMS.git`
