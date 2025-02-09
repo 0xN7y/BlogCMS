@@ -8,6 +8,7 @@ A simple blog CMS built with Node.js and Express.
 ## Features
 - User authentication
 - Blog posting
+- Search functionality
   
 
 ## Setup
