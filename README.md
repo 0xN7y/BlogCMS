@@ -27,5 +27,5 @@ Main            |  Profile                       | Blogs
 :-------------------------:|:-------------------------:|:-------------------------
 ![](readmeimgs/mainindex.png)  |  ![](readmeimgs/profile.png)          |  ![](readmeimgs/userpost.png)
 
-![](readmeimgs/user3post.png)
+![](readmeimgs/user3post.png) | ![](readmeimgs/bobspost.png)
 
