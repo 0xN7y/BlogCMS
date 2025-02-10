@@ -24,3 +24,7 @@ A simple blog CMS built with Node.js and Express.
 ```
 4. Run the createdb.js: `node createdb.js`
 5. Run the app: `npm start` or `node app.js`
+
+Main            |  Profile                       | Blogs
+:-------------------------:|:-------------------------:|:-------------------------
+![](readmeimg/mainindex.png)  |  ![](readmeimg/profile.png)          |  ![](readmeimg/userpost.png)
