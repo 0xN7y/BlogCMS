@@ -19,9 +19,13 @@ A simple blog CMS built with Node.js and Express
   	"password": "mysqlpassword"
 }
 ```
-4. Run the createdb.js: `node createdb.js`
-5. Run the app: `npm start` or `node app.js`
+4. Create database `blogcms`
+5. Run the createdb.js: `node createdb.js`
+6. Run the app: `npm start` or `node app.js`
 
 Main            |  Profile                       | Blogs
 :-------------------------:|:-------------------------:|:-------------------------
 ![](readmeimgs/mainindex.png)  |  ![](readmeimgs/profile.png)          |  ![](readmeimgs/userpost.png)
+
+![](readmeimgs/user3post.png)
+
