@@ -1,9 +1,6 @@
 # BlogCMS
 A simple blog CMS built with Node.js and Express 
 
-# BlogCMS
-
-A simple blog CMS built with Node.js and Express.
 
 ## Features
 - User authentication
