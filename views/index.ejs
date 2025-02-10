@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog CMS</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style type="text/css">
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <div id="toast" class="toast"></div>
+    <div class="container">
+      <h1>Blog</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/search">Search</a></li>
+          <% if (data) { %>
+          <li><a href="/my"><%= data.username %></a></li>
+          <li><a href="/post">Write Blog</a></li>
+         <% } else { %>
+            <li><a href="/login">Login</a></li>
+         <% } %>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  
+  <main>
+    <div class="container">
+      <h2>Latest Posts</h2>
+      <div class="posts-grid">
+        <% blog.forEach(post  => {   %>
+          <div class="post-card">
+            <h3> <strong><%= post.username %></strong> </h3>
+            <h4><%= post.content.replace(/<img[^>]*>/g, "").replace(/<\/?[^>]+(>|$)/g, "").split(' ').slice(0, 10).join(' ')  %>.</h4>
+            <h4><%= new Date(post.created_at).toLocaleDateString() %></h4>
+            <p><%= post.title %> </p>
+            <a href="/blogs/<%= post.post_id %>" class="btn">Read More</a>
+          </div>
+       
+        <% }); %>
+       
+
+      
+      
+      </div>
+       <div class="pagination">
+          <% if (currentPage > 1) { %>
+            <a href="/?page=<%= currentPage - 1 %>" class="btn">Previous</a>
+          <% } %>
+
+          <% for (let i = 1; i <= totalPages; i++) { %>
+            <a href="/?page=<%= i %>" class="btn <%= i === currentPage ? 'active' : '' %>"><%= i %></a>
+          <% } %>
+
+          <% if (currentPage < totalPages) { %>
+            <a href="/?page=<%= currentPage + 1 %>" class="btn">Next</a>
+          <% } %>
+      </div>  
+    </div>
+
+  </main>
+
+
+  <footer>
+    <div class="container">
+     <p>&copy;BlogCMS. All rights reserved. <p style="font-size: smaller;">Developed by Natneal Amsalu(N7y) </p> </p>
+    </div>
+  </footer>
+
+  <script type="text/javascript">
+     const message = "<%= message %>"; 
+        if (message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.style.display = 'block';
+
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000); 
+        }
+  </script>
+</body>
+</html>
+

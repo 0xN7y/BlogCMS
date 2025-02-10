@@ -1,0 +1,105 @@
+<!-- Developed by Natneal Amsalu (N7y), -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search </title>
+  <link rel="stylesheet" href="/css/sr.css">
+  <style type="text/css">
+    
+      .show {
+        margin-top: 2%;
+        display: inline-block;
+        padding: 3px 5px;
+        background: #00ff41;
+        color: #0f0f23;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+
+      .show:hover {
+        background: #00cc33;
+      }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Blogcms</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+    <div class="container">
+      <section class="search-form">
+        <h2>Search Blog Posts</h2>
+        <form action="/search" method="GET">
+          <div class="form-group">
+            <input type="text" name="sr" placeholder="Search by keyword, tag, or author" required>
+            <button type="submit" class="btn">Search</button>
+          
+          </div>
+        </form>
+      </section>
+
+ 
+      <section class="search-results">
+        <h3>Search Result</h3>
+          <% if (author) { %>
+              <% author.forEach(u => { %>
+                  <article class="post">
+                      <h4 class="post-title"><a href="../profile/<%= blog.username %>"><code><%= u.username %></code></a></h4>
+                      <p class="post-excerpt"><%= u.post_count %> Posts</p> 
+                      <a href="../profile/<%= u.username %>" class="show">View Profile</a>
+                  </article>
+              <% }); %>
+          <% } %>
+
+
+          <br>
+        <div class="post-list">
+          <% if (blog) { %>
+              <% blog.forEach(u  => {  %>
+                <article class="post">
+                  <h4 class="post-title"><a href="../profile/<%= u.username %>"><code><%= u.username %></code></a></h4>
+                  <h4 class="post-title"><a href="../profile/<%= u.username %>"><% u.title %></a></h4>
+                  <p class="post-excerpt"><%= u.content.replace(/<img[^>]*>/g, "").replace(/<\/?[^>]+(>|$)/g, "").split(' ').slice(0, 10).join(' ')  %>.</p>
+                  <div class="post-meta">
+                    <span class="author"><a href="../profile/<%= u.username %>"><%= u.username %></a></span>
+                    <span class="date">Published <%= new Date(u.created_at).toLocaleDateString() %></span>
+                    <span class="tags">
+                      <%   if (u.tags) {    %>
+                          <% u.tags.split(',').forEach(tg => { %>
+                            <a class="tag"><%= tg %></a>
+                          <% });%>
+                    <% }; %>
+                    </span>
+                  </div>
+                  <a href="../blogs/<%= u.post_id %>" class="show">Read More</a>
+                </article>
+              <% }); %>
+            <% }; %>
+ 
+        </div>
+      </section>
+    </div>
+  </main>
+
+
+  <footer>
+    <div class="container">
+      <p>&copy;BlogCMS. All rights reserved. <p style="font-size: smaller;">Developed by Natneal Amsalu(N7y) </p> </p>
+    </div>
+  </footer>
+</body>
+</html>

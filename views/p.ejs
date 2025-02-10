@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> BlogCMS</title>
+   <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/p.css">
+
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1></h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+    <div class="container">
+       <div id="toast" class="toast"></div>
+
+      <article class="blog-post">
+      
+
+        <h2 class="post-title"><%= post.title %></h2>
+
+
+        <div class="post-meta">
+          <span class="author">By <a href="../profile/<%= post.username %>"><%= post.username %></a></span>
+          <span class="date">Published on <%= new Date(post.created_at).toLocaleDateString() %></span>
+          <div class="tags">
+             <% tag.forEach(tg  => {   %>
+            <a href="#" class="tag"><%= tg %></a>
+            <% });%>
+          </div>
+        </div>
+
+   
+        <div class="post-content">
+          <%- post.content %>
+ 
+        </div>
+      </article>
+
+      
+    </div>
+  </main>
+
+ 
+  <footer>
+    <div class="container">
+     <p>&copy;BlogCMS. All rights reserved. <p style="font-size: smaller;">Developed by Natneal Amsalu(N7y) </p> </p>
+    </div>
+  </footer>
+
+</body>
+</html>

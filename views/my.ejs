@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile</title>
+  <link rel="stylesheet" href="/css/my.css">
+
+  <style type="text/css">
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Blogcms</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+  <div id="toast" class="toast"></div>
+    <div class="container">
+            <section class="profile-section">
+        <h2>My Profile</h2>
+
+        <div class="user-info">
+          <form class="edit-username-form" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" value="<%= data.username %>" required>
+            <button type="submit" class="btn" name="uname">Save Changes</button>
+          </form>
+          <form class="edit-username-form" method="POST">
+            <label for="email">Email</label>
+            <input type="email" id="username" name="email" value="<%= udata.email %>" required>
+            <button type="submit" class="btn" name="email">Save Changes</button>
+          </form>
+          <form class="change-password-form" method="POST">
+         
+            <label for="new-password">New Password</label>
+            <input type="password" id="new-password" name="newpassword" required>
+            <label for="confirm-password">Confirm New Password</label>
+            <input type="password" id="confirm-password" name="confirmpassword" required>
+            <button type="submit" class="btn" name="passwd">Change Password</button>
+          </form>
+        </div>
+      </section>
+
+
+      <section class="my-posts">
+        <h3>My Posts</h3>
+        <div class="post-list">
+
+
+           <% if (blog) { %>
+              <% blog.forEach(u  => {  %>
+                  <article class="post">
+                    <h4 class="post-title"><a href="/blogs/<%= u.post_id %>"><%= u.title %></a></h4>
+                    <p class="post-excerpt"><%= u.content.replace(/<img[^>]*>/g, "").replace(/<\/?[^>]+(>|$)/g, "").split(' ').slice(0, 10).join(' ')  %></p>
+                    <div class="post-meta">
+                      <span class="date">Published  <%= new Date(u.created_at).toLocaleDateString() %></span>
+                      <span class="tags">
+                        <%   if (u.tags) {    %>
+                            <% u.tags.split(',').forEach(tg => { %>
+                              <a class="tag"><%= tg %></a>
+                            <% });%>
+                        <% }; %>
+                    </span>
+                      <form method="GET" action="/my/dlp/<%= u.post_id %>">
+                          <button class="btn delete-btn" id="<%= u.post_id %>" >Delete</button>
+                      </form>
+                    </div>
+                  </article>
+              <% }); %>
+          <% }; %>
+
+         
+        </div>
+      </section>
+    </div>
+  </main>
+
+
+  <footer>
+    <div class="container">
+      <p>&copy;BlogCMS. All rights reserved. <p style="font-size: smaller;">Developed by Natneal Amsalu(N7y) </p> </p>
+    </div>
+  </footer>
+  <script type="text/javascript">
+    const message = "<%= message %>"; 
+        if (message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.style.display = 'block';
+
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000); 
+        }
+    
+  </script>
+</body>
+</html>

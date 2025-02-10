@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile </title>
+  <link rel="stylesheet" href="/css/pf.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>BlogCMS</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+   
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+    <div class="container">
+      <section class="user-profile">
+        <div class="profile-header">
+
+
+    
+          <div class="user-info">
+            <h2><%= data[0].username %></h2>
+
+            <p class="stats">
+              <span class="posts-count"><%= data.length %> Posts</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="user-posts">
+        <h3>Posts by <%= data[0].username %></h3>
+   
+        <div class="post-list">
+        <% data.forEach(post  => {   %>
+   
+     
+              <article class="post">
+                <h4 class="post-title"><a href="../blogs/<%= post.post_id %>"><%= post.title %></a></h4>
+                <p class="post-excerpt"><%= post.content.replace(/<img[^>]*>/g, "").replace(/<\/?[^>]+(>|$)/g, "").split(' ').slice(0, 10).join(' ')  %>.</p>
+                <div class="post-meta">
+                  <span class="date">Published <%= new Date(post.created_at).toLocaleDateString() %></span>
+                  <span class="tags">
+                    <%   if (post.tags) {    %>
+                          <% post.tags.split(',').forEach(tg => { %>
+                            <a class="tag"><%= tg %></a>
+                          <% });%>
+                    <% }; %>
+
+                
+                  </span>
+                </div>
+              </article>
+          <% }); %>
+   
+         
+        </div>
+      </section>
+    </div>
+  </main>
+
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Futuristic Blog. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

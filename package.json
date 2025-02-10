@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dompurify": "^3.2.4",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-mysql-session": "^3.0.3",
+    "express-session": "^1.18.1",
+    "file-type": "^16.5.4",
+    "helmet": "^8.0.0",
+    "jsdom": "^26.0.0",
+    "mysql2": "^3.12.0",
+    "sanitize-html": "^2.14.0",
+    "sharp": "^0.33.5"
+  },
+  "name": "blogcms",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Natneal Amsalu (N7y)",
+  "license": "ISC",
+  "description": "Simple Blog CMS ",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0xN7y/BlogCMS.git"
+  }
+}

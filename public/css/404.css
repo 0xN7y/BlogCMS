@@ -1,0 +1,106 @@
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #0f0f23;
+  color: #00ff41;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+header {
+  background: #1c1c1c;
+  padding: 20px 0;
+  border-bottom: 2px solid #00ff41;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  text-shadow: 0 0 5px #00ff41;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+nav a {
+  color: #00ff41;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #00cc33;
+}
+
+/* 404 Error Section */
+.error-section {
+  margin-top: 100px;
+}
+
+.error-section h2 {
+  font-size: 6rem;
+  margin: 0;
+  color: #00ff41;
+  text-shadow: 0 0 10px #00ff41;
+}
+
+.error-message {
+  font-size: 2rem;
+  margin: 20px 0;
+  color: #00cc33;
+}
+
+.error-description {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #00ff41;
+}
+
+.error-section .btn {
+  background: #00ff41;
+  color: #0f0f23;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.error-section .btn:hover {
+  background: #00cc33;
+  transform: translateY(-2px);
+}
+
+.error-section .btn:active {
+  transform: translateY(0);
+}
+
+/* Footer */
+footer {
+  background: #1c1c1c;
+  padding: 10px 0;
+  border-top: 2px solid #00ff41;
+  text-align: center;
+  margin-top: 100px;
+}
+
+footer p {
+  margin: 0;
+}
