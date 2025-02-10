@@ -26,6 +26,7 @@ A simple blog CMS built with Node.js and Express
 Main            |  Profile                       | Blogs
 :-------------------------:|:-------------------------:|:-------------------------
 ![](readmeimgs/mainindex.png)  |  ![](readmeimgs/profile.png)          |  ![](readmeimgs/userpost.png)
+
 :----------------------------- :|:--------------------------- 
 ![](readmeimgs/user3post.png) | ![](readmeimgs/bobspost.png)
 
